@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { 
-  FiMail, 
   FiMapPin, 
   FiLinkedin, 
-  FiGithub, 
-  FiSend,
-  FiUser,
-  FiMessageSquare
+  FiGithub
 } from 'react-icons/fi';
 import '../styles/Contact.css';
 
@@ -17,35 +13,6 @@ const Contact = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const [formStatus, setFormStatus] = useState('');
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Simple form submission - you can integrate with EmailJS or other services later
-    setFormStatus('Thank you for your message! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    
-    // Reset status after 5 seconds
-    setTimeout(() => {
-      setFormStatus('');
-    }, 5000);
-  };
 
   const contactInfo = [
     {
@@ -172,80 +139,6 @@ const Contact = () => {
                   <span>Available for new opportunities</span>
                 </div>
                 <p>Currently seeking full-time opportunities in Data Science and Software Development</p>
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="contact-form-container">
-              <div className="contact-form glass-card">
-                <h3 className="gradient-text">Send Message</h3>
-                
-                {formStatus && (
-                  <div className="form-status">
-                    {formStatus}
-                  </div>
-                )}
-
-                <form onSubmit={handleSubmit}>
-                  <div className="form-group">
-                    <div className="input-group">
-                      <FiUser className="input-icon" />
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <div className="input-group">
-                      <FiMail className="input-icon" />
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Your Email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <div className="input-group">
-                      <FiMessageSquare className="input-icon" />
-                      <input
-                        type="text"
-                        name="subject"
-                        placeholder="Subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <div className="input-group textarea-group">
-                      <textarea
-                        name="message"
-                        placeholder="Your Message"
-                        rows="6"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                      ></textarea>
-                    </div>
-                  </div>
-
-                  <button type="submit" className="btn btn-primary form-submit">
-                    <FiSend />
-                    Send Message
-                  </button>
-                </form>
               </div>
             </motion.div>
           </div>

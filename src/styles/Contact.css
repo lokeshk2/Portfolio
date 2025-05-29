@@ -26,9 +26,8 @@
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  display: flex;
+  justify-content: center;
   align-items: start;
 }
 
@@ -234,102 +233,20 @@
   margin: 0;
 }
 
-.contact-form-container {
-  position: sticky;
-  top: 100px;
-}
-
-.contact-form {
-  padding: 40px;
-}
-
-.contact-form h3 {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-}
-
-.form-status {
-  background: rgba(74, 222, 128, 0.1);
-  color: #4ade80;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  border: 1px solid rgba(74, 222, 128, 0.2);
-  text-align: center;
-}
-
-.form-group {
-  margin-bottom: 25px;
-}
-
-.input-group {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.input-icon {
-  position: absolute;
-  left: 15px;
-  color: #667eea;
-  font-size: 1.1rem;
-  z-index: 2;
-}
-
-.input-group input,
-.input-group textarea {
-  width: 100%;
-  padding: 15px 15px 15px 45px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  color: #fff;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  font-family: inherit;
-}
-
-.textarea-group textarea {
-  padding: 15px;
-  resize: vertical;
-  min-height: 120px;
-}
-
-.input-group input:focus,
-.input-group textarea:focus {
-  outline: none;
-  border-color: #667eea;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.input-group input::placeholder,
-.input-group textarea::placeholder {
-  color: #888;
-}
-
-.form-submit {
-  width: 100%;
-  padding: 15px;
-  font-size: 1.1rem;
-  gap: 10px;
-  margin-top: 10px;
-}
-
 @media (max-width: 1024px) {
   .contact-grid {
-    gap: 40px;
+    flex-direction: column;
+    align-items: center;
   }
   
-  .contact-form-container {
-    position: static;
+  .contact-info {
+    max-width: 600px;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .contact-info {
+    max-width: 100%;
   }
   
   .contact-item {
@@ -342,26 +259,12 @@
     font-size: 1.1rem;
   }
   
-  .contact-form {
-    padding: 30px 25px;
-  }
-  
-  .input-group input,
-  .input-group textarea {
-    padding: 12px 12px 12px 40px;
-  }
-  
   .social-link {
     padding: 12px;
   }
 }
 
 @media (max-width: 480px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
   .contact-item {
     padding: 15px;
   }
@@ -369,34 +272,6 @@
   .contact-icon {
     width: 35px;
     height: 35px;
-    font-size: 1rem;
-  }
-  
-  .contact-form {
-    padding: 25px 20px;
-  }
-  
-  .contact-form h3 {
-    font-size: 1.3rem;
-  }
-  
-  .input-group input,
-  .input-group textarea {
-    padding: 12px 12px 12px 40px;
-    font-size: 0.9rem;
-  }
-  
-  .input-icon {
-    left: 12px;
-  }
-  
-  .textarea-group textarea {
-    padding: 12px;
-    min-height: 100px;
-  }
-  
-  .form-submit {
-    padding: 12px;
     font-size: 1rem;
   }
   
