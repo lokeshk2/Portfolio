@@ -63,17 +63,14 @@ const About = () => {
                 </p>
 
                 <div className="contact-info">
-                  <div className="contact-item">
-                    <FiMail className="contact-icon" />
-                    <span>lokeshsetty10@gmail.com</span>
-                  </div>
-                  <div className="contact-item">
-                    <FiPhone className="contact-icon" />
-                    <span>+1 (667) 406-7989</span>
-                  </div>
-                  <div className="contact-item">
-                    <FiMapPin className="contact-icon" />
-                    <span>Baltimore, MD</span>
+                  <div className="contact-card">
+                    <div className="contact-icon-wrapper">
+                      <FiMapPin className="contact-icon" />
+                    </div>
+                    <div className="contact-details">
+                      <span className="contact-label">Location</span>
+                      <span className="contact-value">Baltimore, MD</span>
+                    </div>
                   </div>
                 </div>
 
@@ -82,21 +79,33 @@ const About = () => {
                     href="https://linkedin.com/in/settylokesh" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="social-link linkedin"
+                    className="contact-card social-link linkedin"
                     aria-label="LinkedIn Profile"
+                    title="LinkedIn: @settylokesh"
                   >
-                    <FiLinkedin size={20} />
-                    <span>LinkedIn</span>
+                    <div className="contact-icon-wrapper">
+                      <FiLinkedin className="contact-icon" />
+                    </div>
+                    <div className="contact-details">
+                      <span className="contact-label">LinkedIn</span>
+                      <span className="contact-value">@settylokesh</span>
+                    </div>
                   </a>
                   <a 
                     href="https://github.com/settylokesh" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="social-link github"
+                    className="contact-card social-link github"
                     aria-label="GitHub Profile"
+                    title="GitHub: @settylokesh"
                   >
-                    <FiGithub size={20} />
-                    <span>GitHub</span>
+                    <div className="contact-icon-wrapper">
+                      <FiGithub className="contact-icon" />
+                    </div>
+                    <div className="contact-details">
+                      <span className="contact-label">GitHub</span>
+                      <span className="contact-value">@settylokesh</span>
+                    </div>
                   </a>
                 </div>
               </div>

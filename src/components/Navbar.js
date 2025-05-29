@@ -26,6 +26,10 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' }
   ];
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <motion.nav
       className={`navbar ${scrolled ? 'scrolled' : ''}`}
@@ -62,30 +66,25 @@ const Navbar = () => {
           {isOpen ? <FiX /> : <FiMenu />}
         </div>
 
-        {/* Mobile Menu */}
-        <motion.div
-          className={`mobile-menu ${isOpen ? 'active' : ''}`}
-          initial={{ opacity: 0, x: '100%' }}
-          animate={{ 
-            opacity: isOpen ? 1 : 0, 
-            x: isOpen ? '0%' : '100%' 
-          }}
-          transition={{ duration: 0.3 }}
-        >
+        <div className={`mobile-menu ${isOpen ? 'active' : ''}`}>
           {navItems.map((item, index) => (
-            <motion.a
+            <a
               key={item.name}
               href={item.href}
               className="mobile-link"
-              onClick={() => setIsOpen(false)}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
+              onClick={closeMenu}
             >
               {item.name}
-            </motion.a>
+            </a>
           ))}
-        </motion.div>
+        </div>
+
+        {isOpen && (
+          <div 
+            className="mobile-overlay" 
+            onClick={closeMenu}
+          />
+        )}
       </div>
     </motion.nav>
   );

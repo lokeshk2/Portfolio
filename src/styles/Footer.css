@@ -105,19 +105,19 @@
 
 .social-links {
   display: flex;
+  flex-direction: column;
   gap: 15px;
   margin-bottom: 20px;
 }
 
 .social-link {
-  width: 45px;
-  height: 45px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   color: #b0b0b0;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -133,26 +133,57 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  transform: scale(0);
+  transform: translateX(-100%);
   transition: transform 0.3s ease;
-  border-radius: 50%;
 }
 
 .social-link:hover::before {
-  transform: scale(1);
+  transform: translateX(0);
 }
 
 .social-link:hover {
   color: white;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.social-link svg {
+.social-icon {
   position: relative;
   z-index: 2;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.social-icon svg {
   width: 20px;
   height: 20px;
+}
+
+.social-info {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.social-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.social-handle {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  opacity: 0.8;
 }
 
 .newsletter p {
@@ -308,14 +339,63 @@
   }
   
   .footer-grid {
-    gap: 30px;
+    gap: 25px;
   }
   
   .footer-section h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
   }
   
   .footer-section h4 {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .footer-brand p {
+    font-size: 0.9rem;
+  }
+  
+  .footer-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+  
+  .contact-details p {
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+  
+  .social-links {
+    gap: 10px;
+  }
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .social-link svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .copyright p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  
+  .scroll-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 }

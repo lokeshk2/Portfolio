@@ -114,18 +114,83 @@
   text-decoration: none;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--hover-color, #667eea);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: bottom;
+}
+
+.social-link:hover::before {
+  transform: scaleY(1);
 }
 
 .social-link:hover {
   background: rgba(255, 255, 255, 0.1);
   color: var(--hover-color, #667eea);
-  transform: translateX(5px);
+  transform: translateX(8px);
+  border-color: var(--hover-color, rgba(102, 126, 234, 0.3));
 }
 
-.social-link svg {
+.social-icon {
+  position: relative;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  background: var(--hover-color, #667eea);
+  color: white;
+}
+
+.social-icon svg {
   width: 20px;
   height: 20px;
-  flex-shrink: 0;
+}
+
+.social-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.social-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.social-handle {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  opacity: 0.8;
+}
+
+.social-description {
+  font-size: 0.8rem;
+  color: #888;
+  opacity: 0.9;
+  margin-top: 2px;
 }
 
 .availability-card {
@@ -288,5 +353,67 @@
   
   .social-link {
     padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .contact-item {
+    padding: 15px;
+  }
+  
+  .contact-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .contact-form {
+    padding: 25px 20px;
+  }
+  
+  .contact-form h3 {
+    font-size: 1.3rem;
+  }
+  
+  .input-group input,
+  .input-group textarea {
+    padding: 12px 12px 12px 40px;
+    font-size: 0.9rem;
+  }
+  
+  .input-icon {
+    left: 12px;
+  }
+  
+  .textarea-group textarea {
+    padding: 12px;
+    min-height: 100px;
+  }
+  
+  .form-submit {
+    padding: 12px;
+    font-size: 1rem;
+  }
+  
+  .social-link {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .social-link span {
+    font-size: 0.9rem;
+  }
+  
+  .availability-card {
+    padding: 20px;
+  }
+  
+  .availability-card h4 {
+    font-size: 1rem;
   }
 }

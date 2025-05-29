@@ -361,3 +361,72 @@
     gap: 10px;
   }
 }
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .project-card {
+    padding: 25px 20px;
+  }
+  
+  .project-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .project-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .project-meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+  }
+  
+  .project-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .project-action {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    justify-content: center;
+  }
+  
+  .modal-header {
+    padding: 20px 20px 15px;
+  }
+  
+  .modal-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .modal-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .modal-technologies {
+    gap: 8px;
+  }
+  
+  .modal-tech-badge {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+  }
+}

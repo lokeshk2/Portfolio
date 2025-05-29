@@ -17,17 +17,23 @@ const Footer = () => {
     {
       icon: <FiLinkedin size={20} />,
       url: "https://linkedin.com/in/settylokesh",
-      name: "LinkedIn"
+      name: "LinkedIn",
+      handle: "@settylokesh",
+      description: "Professional Network"
     },
     {
       icon: <FiGithub size={20} />,
       url: "https://github.com/settylokesh",
-      name: "GitHub"
+      name: "GitHub", 
+      handle: "@settylokesh",
+      description: "Code Repository"
     },
     {
       icon: <FiMail size={20} />,
-      url: "mailto:lokeshsetty10@gmail.com",
-      name: "Email"
+      url: "mailto:settylokesh10@gmail.com",
+      name: "Email",
+      handle: "settylokesh10@gmail.com",
+      description: "Direct Contact"
     }
   ];
 
@@ -90,14 +96,6 @@ const Footer = () => {
                 <h4>Contact Info</h4>
                 <div className="contact-details">
                   <p>
-                    <strong>Email:</strong>
-                    <a href="mailto:lokeshsetty10@gmail.com">lokeshsetty10@gmail.com</a>
-                  </p>
-                  <p>
-                    <strong>Phone:</strong>
-                    <a href="tel:+16674067989">+1 (667) 406-7989</a>
-                  </p>
-                  <p>
                     <strong>Location:</strong>
                     <span>Baltimore, MD</span>
                   </p>
@@ -112,7 +110,7 @@ const Footer = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <h4>Follow Me</h4>
+                <h4>Connect With Me</h4>
                 <div className="social-links">
                   {socialLinks.map((social, index) => (
                     <a
@@ -121,9 +119,16 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-link"
-                      aria-label={social.name}
+                      aria-label={`${social.name} - ${social.description}`}
+                      title={`${social.name}: ${social.handle}`}
                     >
-                      {social.icon}
+                      <div className="social-icon">
+                        {social.icon}
+                      </div>
+                      <div className="social-info">
+                        <span className="social-name">{social.name}</span>
+                        <span className="social-handle">{social.handle}</span>
+                      </div>
                     </a>
                   ))}
                 </div>

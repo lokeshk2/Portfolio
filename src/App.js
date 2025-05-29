@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AOS from 'aos';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -21,24 +20,16 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Hero />
-              <About />
-              <Experience />
-              <Projects />
-              <Skills />
-              <Contact />
-            </>
-          } />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <div className="App">
+      <Navbar />
+      <Hero />
+      <About />
+      <Experience />
+      <Projects />
+      <Skills />
+      <Contact />
+      <Footer />
+    </div>
   );
 }
 

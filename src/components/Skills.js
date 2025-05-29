@@ -182,7 +182,7 @@ const Skills = () => {
               </div>
               <div className="summary-item glass-card">
                 <FiDatabase className="summary-icon" />
-                <h4>10+</h4>
+                <h4>5+</h4>
                 <p>Frameworks & Libraries</p>
               </div>
               <div className="summary-item glass-card">

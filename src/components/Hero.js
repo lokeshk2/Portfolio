@@ -1,25 +1,34 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiDownload, FiMail } from 'react-icons/fi';
+import { FiCode, FiMail } from 'react-icons/fi';
 import '../styles/Hero.css';
 
 const Hero = () => {
   const canvasRef = useRef(null);
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
+    
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
     // Set canvas size
     const resizeCanvas = () => {
+      const rect = canvas.getBoundingClientRect();
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
 
-    // Particle system
+    // Particle system - reduce count on mobile
     const particles = [];
-    const particleCount = 100;
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 50 : 100;
 
     class Particle {
       constructor() {
@@ -55,6 +64,8 @@ const Hero = () => {
 
     // Animation loop
     const animate = () => {
+      if (!ctx || !canvas) return;
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach(particle => {
@@ -62,23 +73,25 @@ const Hero = () => {
         particle.draw();
       });
 
-      // Draw connections
-      particles.forEach((particle, i) => {
-        particles.slice(i + 1).forEach(otherParticle => {
-          const dx = particle.x - otherParticle.x;
-          const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+      // Draw connections only on desktop for performance
+      if (!isMobile) {
+        particles.forEach((particle, i) => {
+          particles.slice(i + 1).forEach(otherParticle => {
+            const dx = particle.x - otherParticle.x;
+            const dy = particle.y - otherParticle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 100) {
-            ctx.globalAlpha = 0.1;
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = '#667eea';
-            ctx.stroke();
-          }
+            if (distance < 100) {
+              ctx.globalAlpha = 0.1;
+              ctx.beginPath();
+              ctx.moveTo(particle.x, particle.y);
+              ctx.lineTo(otherParticle.x, otherParticle.y);
+              ctx.strokeStyle = '#667eea';
+              ctx.stroke();
+            }
+          });
         });
-      });
+      }
 
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -143,8 +156,8 @@ const Hero = () => {
                 <a href="#contact" className="btn btn-primary">
                   <FiMail /> Get In Touch
                 </a>
-                <a href="/resume.pdf" className="btn btn-outline" download>
-                  <FiDownload /> Download Resume
+                <a href="#projects" className="btn btn-outline">
+                  <FiCode /> View Projects
                 </a>
               </motion.div>
 
@@ -163,7 +176,7 @@ const Hero = () => {
                   <p>Years Experience</p>
                 </div>
                 <div className="stat">
-                  <h3>10+</h3>
+                  <h3>5+</h3>
                   <p>Projects Completed</p>
                 </div>
               </motion.div>
@@ -177,7 +190,11 @@ const Hero = () => {
                 transition={{ duration: 1, delay: 0.5 }}
               >
                 <div className="image-wrapper">
-                  <img src="/Lokesh-Setty.jpg" alt="Lokesh Setty" />
+                  {!imageError ? (
+                    <img src="/Lokesh-Setty.jpg" alt="Lokesh Setty" onError={handleImageError} />
+                  ) : (
+                    <div className="image-error">Image failed to load</div>
+                  )}
                   <div className="image-overlay"></div>
                 </div>
               </motion.div>

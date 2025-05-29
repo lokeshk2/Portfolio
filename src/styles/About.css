@@ -36,8 +36,116 @@
 
 .contact-info {
   margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #667eea;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: bottom;
+}
+
+.contact-card:hover::before {
+  transform: scaleY(1);
+}
+
+.contact-card:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: translateX(8px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+.contact-card.linkedin:hover {
+  background: rgba(0, 119, 181, 0.2);
+  border-color: #0077b5;
+  box-shadow: 0 8px 25px rgba(0, 119, 181, 0.2);
+}
+
+.contact-card.linkedin:hover::before {
+  background: #0077b5;
+}
+
+.contact-card.github:hover {
+  background: rgba(51, 51, 51, 0.2);
+  border-color: #333;
+  box-shadow: 0 8px 25px rgba(51, 51, 51, 0.2);
+}
+
+.contact-card.github:hover::before {
+  background: #333;
+}
+
+.contact-icon-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-icon-wrapper {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.contact-icon {
+  color: #667eea;
+  font-size: 1.1rem;
+  width: 20px;
+  height: 20px;
+}
+
+.contact-details {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.contact-value {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  opacity: 0.8;
+}
+
+/* Legacy contact item styles for backward compatibility */
 .contact-item {
   display: flex;
   align-items: center;
@@ -46,70 +154,18 @@
   color: #b0b0b0;
 }
 
-.contact-icon {
-  color: #667eea;
-  font-size: 1.1rem;
-}
-
-/* Ensure social links are always visible */
+/* Social links styling */
 .social-links {
   display: flex;
+  flex-direction: column;
   gap: 15px;
   margin-top: 30px;
-  flex-wrap: wrap;
 }
 
-.social-link {
-  display: inline-flex !important;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
-  text-decoration: none;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-  font-weight: 500;
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  backdrop-filter: blur(10px);
-  min-height: 45px;
+/* Social links now use contact-card styling for consistency */
+.social-links .contact-card {
   opacity: 1 !important;
   visibility: visible !important;
-}
-
-.social-link:hover {
-  background: #667eea;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-  border-color: #667eea;
-}
-
-.social-link.linkedin:hover {
-  background: #0077b5;
-  border-color: #0077b5;
-  box-shadow: 0 8px 25px rgba(0, 119, 181, 0.3);
-}
-
-.social-link.github:hover {
-  background: #333;
-  border-color: #333;
-  box-shadow: 0 8px 25px rgba(51, 51, 51, 0.3);
-}
-
-.social-link svg {
-  flex-shrink: 0;
-  width: 20px !important;
-  height: 20px !important;
-  display: block !important;
-  opacity: 1 !important;
-}
-
-.social-link span {
-  font-weight: 500;
-  white-space: nowrap;
-  display: inline-block;
 }
 
 .education-timeline h3 {
@@ -287,5 +343,115 @@
   .achievements-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .about-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .about-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .contact-item {
+    margin-bottom: 12px;
+  }
+  
+  .contact-icon {
+    font-size: 1rem;
+  }
+  
+  .social-links {
+    gap: 10px;
+  }
+  
+  .social-link {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .social-link svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  
+  .timeline {
+    padding-left: 15px;
+  }
+  
+  .timeline::before {
+    left: 7px;
+    width: 2px;
+  }
+  
+  .timeline-marker {
+    left: -20px;
+    width: 10px;
+    height: 10px;
+  }
+  
+  .timeline-content {
+    margin-left: 8px;
+  }
+  
+  .timeline-header {
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  
+  .timeline-header h4 {
+    font-size: 1rem;
+  }
+  
+  .timeline-date {
+    font-size: 0.8rem;
+  }
+  
+  .timeline-institution {
+    font-size: 0.9rem;
+  }
+  
+  .timeline-gpa {
+    font-size: 0.9rem;
+  }
+  
+  .coursework ul {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+  
+  .coursework li {
+    font-size: 0.8rem;
+    padding-left: 15px;
+  }
+  
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .achievement-item {
+    padding: 20px 15px;
+  }
+  
+  .achievement-item h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .achievement-item p {
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 }

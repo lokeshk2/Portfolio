@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { 
   FiMail, 
-  FiPhone, 
   FiMapPin, 
   FiLinkedin, 
   FiGithub, 
@@ -38,7 +37,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the email using EmailJS or similar service
+    // Simple form submission - you can integrate with EmailJS or other services later
     setFormStatus('Thank you for your message! I\'ll get back to you soon.');
     setFormData({ name: '', email: '', subject: '', message: '' });
     
@@ -49,18 +48,6 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    {
-      icon: <FiMail />,
-      title: "Email",
-      value: "lokeshsetty10@gmail.com",
-      link: "mailto:lokeshsetty10@gmail.com"
-    },
-    {
-      icon: <FiPhone />,
-      title: "Phone",
-      value: "+1 (667) 406-7989",
-      link: "tel:+16674067989"
-    },
     {
       icon: <FiMapPin />,
       title: "Location",
@@ -74,13 +61,17 @@ const Contact = () => {
       icon: <FiLinkedin size={20} />,
       name: "LinkedIn",
       url: "https://linkedin.com/in/settylokesh",
-      color: "#0077b5"
+      color: "#0077b5",
+      handle: "@settylokesh",
+      description: "Connect professionally"
     },
     {
       icon: <FiGithub size={20} />,
       name: "GitHub",
       url: "https://github.com/settylokesh",
-      color: "#333"
+      color: "#333",
+      handle: "@settylokesh", 
+      description: "View my code"
     }
   ];
 
@@ -149,7 +140,7 @@ const Contact = () => {
               </div>
 
               <div className="social-section">
-                <h4>Follow Me</h4>
+                <h4>Connect With Me</h4>
                 <div className="social-links">
                   {socialLinks.map((social, index) => (
                     <a
@@ -159,9 +150,16 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       className="social-link"
                       style={{ '--hover-color': social.color }}
+                      title={`${social.name}: ${social.handle}`}
                     >
-                      {social.icon}
-                      <span>{social.name}</span>
+                      <div className="social-icon">
+                        {social.icon}
+                      </div>
+                      <div className="social-content">
+                        <span className="social-name">{social.name}</span>
+                        <span className="social-handle">{social.handle}</span>
+                        <span className="social-description">{social.description}</span>
+                      </div>
                     </a>
                   ))}
                 </div>
