@@ -290,3 +290,13 @@
     padding: 12px;
   }
 }
+
+@media (max-width: 480px) {
+  .contact-grid {
+    gap: 30px;
+  }
+
+  .contact-form {
+    padding: 25px 20px;
+  }
+}

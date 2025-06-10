@@ -355,9 +355,24 @@
   .modal-content {
     padding: 25px;
   }
-  
+
   .modal-meta {
     flex-direction: column;
     gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card {
+    padding: 25px 20px;
+  }
+
+  .modal-content {
+    padding: 20px;
   }
 }
