@@ -46,8 +46,8 @@ A modern, responsive portfolio website showcasing my journey as a Data Scientist
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Real-Time-Stock_market.git
-   cd Real-Time-Stock_market
+   git clone https://github.com/yourusername/Portfolio.git
+   cd Portfolio
    ```
 
 2. Install dependencies:
