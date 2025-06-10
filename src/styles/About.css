@@ -289,3 +289,26 @@
     gap: 20px;
   }
 }
+
+@media (max-width: 480px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .timeline {
+    padding-left: 15px;
+  }
+
+  .timeline-marker {
+    left: -24px;
+  }
+
+  .timeline-content {
+    margin-left: 8px;
+  }
+
+  .achievements-grid {
+    gap: 15px;
+  }
+}

@@ -160,3 +160,18 @@ body {
     padding: 0 15px;
   }
 }
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+}

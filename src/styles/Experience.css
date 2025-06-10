@@ -283,3 +283,13 @@
     padding: 40px 20px;
   }
 }
+
+@media (max-width: 480px) {
+  .experience-content {
+    padding: 25px 15px;
+  }
+
+  .summary-card {
+    padding: 30px 15px;
+  }
+}
